@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Seajobies</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email_or_username">Email or Username</string>
+    <string name="hint_company_name">Company Name</string>
+    <string name="hint_managing_director">Managing Director</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_add">Add</string>
+    <string-array name="srps_approved">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string name="btn_login">Login</string>
+    <string name="btn_goto_signup"><u>Don\'t have an account? Create one!</u></string>
+    <string name="btn_signup">Signup</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_srps">SRPS</string>
+    <string name="hint_phone_numbers">Phone Numbers</string>
 </resources>

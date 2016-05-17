@@ -8,7 +8,10 @@ import android.graphics.Bitmap;
 public class Bulletin {
 
     public String content;
-    public Bitmap photo;
+    public String photoUrl;
+    public String url;
+    public String name;
+    public String timestamp;
 
     public Bulletin() {
 

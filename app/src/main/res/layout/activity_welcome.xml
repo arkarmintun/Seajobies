@@ -84,6 +84,17 @@
             fab:fab_label="Add New Feed" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_add_certificate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pencil"
+            fab:fab_colorNormal="#FF9800"
+            fab:fab_colorPressed="#DDFF9800"
+            fab:fab_colorRipple="#99FFFFFF"
+            fab:fab_size="mini"
+            fab:fab_label="Add New Certificate" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab_admin_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

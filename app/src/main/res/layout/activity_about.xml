@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingPrefix">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/header_cover_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/navigation_header_image" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/user_profile_photo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/header_cover_image"
+                android:src="@drawable/profile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-60dp"
+                android:elevation="5dp"
+                app:civ_border_color="#EEEEEE"
+                app:civ_border_width="4dp"
+                app:civ_shadow="true"
+                app:civ_shadow_radius="10"
+                app:civ_shadow_color="#77000000"/>
+
+            <RelativeLayout
+                android:id="@+id/profile_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header_cover_image"
+                android:background="@color/colorAccent"
+                android:elevation="4dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:id="@+id/user_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Arkar Min Tun"
+                    android:layout_marginTop="76dp"
+                    android:textColor="#fff"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    fontPath="fonts/Roboto-Regular.ttf"/>
+
+                <TextView
+                    android:id="@+id/user_profile_name_mm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_profile_name"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_layout"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_developer_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp"
+                        android:tint="@color/colorAccent"
+                        android:src="@drawable/information_variant"/>
+
+                    <TextView
+                        android:id="@+id/text_developer_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="72dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:minLines="1"
+                        android:maxLines="4"
+                        android:textSize="16sp"
+                        fontPath="fonts/Roboto-Regular.ttf"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_phone_numbers"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp"
+                        android:tint="@color/colorAccent"
+                        android:src="@drawable/rank"/>
+
+                    <TextView
+                        android:id="@+id/text_phone_numbers"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="72dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:text="Deck Cadet (D/C)"
+                        android:textSize="16sp"
+                        fontPath="fonts/Roboto-Regular.ttf"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_certificate"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp"
+                        android:tint="@color/colorAccent"
+                        android:src="@drawable/certificate"/>
+
+                    <TextView
+                        android:id="@+id/text_certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="72dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:text="CDC - 100641"
+                        android:textSize="16sp"
+                        fontPath="fonts/Roboto-Regular.ttf"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp"
+                        android:tint="@color/colorAccent"
+                        android:src="@drawable/phone"/>
+
+                    <TextView
+                        android:id="@+id/text_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="72dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:text="09797542156"
+                        android:textSize="16sp"
+                        fontPath="fonts/Roboto-Regular.ttf"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_give_support"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp"
+                        android:tint="@color/colorAccent"
+                        android:src="@drawable/coffee"/>
+
+                    <TextView
+                        android:id="@+id/text_give_support"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="72dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:minLines="1"
+                        android:maxLines="4"
+                        android:textSize="16sp"
+                        android:text="You can support the developer with donating money or spreading words about Seajobies."
+                        fontPath="fonts/Roboto-Regular.ttf"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

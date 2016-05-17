@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.arkarmintun.seajobies.R;
+import com.arkarmintun.seajobies.helper.Helper;
 import com.arkarmintun.seajobies.model.Agent;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -27,6 +28,7 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -45,6 +47,7 @@ public class BulletinAddActivity extends AppCompatActivity {
     private ParseObject agentObject;
     private String content;
     private String agent;
+    private String url;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -64,6 +67,7 @@ public class BulletinAddActivity extends AppCompatActivity {
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Agent");
         query.selectKeys(Arrays.asList("name"));
+        query.setLimit(1000);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
@@ -96,16 +100,17 @@ public class BulletinAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText inputContent = (EditText) findViewById(R.id.input_content);
+                EditText inputUrl = (EditText) findViewById(R.id.input_url);
                 AutoCompleteTextView agentList = (AutoCompleteTextView) findViewById(R.id.agent_list);
 
                 content = inputContent.getText().toString();
                 agent = agentList.getText().toString();
-                Log.e("Content", content);
-                Log.e("Agent", agent);
+                url = inputUrl.getText().toString();
 
                 if (content.equals("") || agent.equals("")) {
                     Toast.makeText(BulletinAddActivity.this, "Complete the form.", Toast.LENGTH_SHORT).show();
                 } else {
+                    Helper.startLoading(v.getContext(), "Saving...");
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("Agent");
                     query.whereEqualTo("name", agent);
                     query.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -114,6 +119,7 @@ public class BulletinAddActivity extends AppCompatActivity {
                             if (e == null) {
                                 ParseObject feed = new ParseObject("Bulletin");
                                 feed.put("content", content);
+                                feed.put("url", url);
                                 feed.put("createdBy", object);
 
                                 if (image != null) {
@@ -122,21 +128,18 @@ public class BulletinAddActivity extends AppCompatActivity {
                                     feed.put("photo", file);
                                 }
 
-                                feed.saveInBackground();
+                                feed.saveInBackground(new SaveCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        Helper.stopLoading();
+                                        Toast.makeText(BulletinAddActivity.this, "Successfully Added.", Toast.LENGTH_LONG).show();
+                                        finish();
+                                    }
+                                });
                             }
                         }
                     });
                 }
-
-//                ParseFile file = new ParseFile("image.jpeg", image);
-//                file.saveInBackground();
-//
-//                ParseObject feed = new ParseObject("Bulletin");
-//                feed.put("content", content);
-//                feed.put("createdBy", agentObject);
-//                feed.put("photo", file);
-//                feed.saveInBackground();
-
             }
         });
     }

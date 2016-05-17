@@ -39,7 +39,6 @@ public class AgentAdapter extends RecyclerView.Adapter<AgentAdapter.ViewHolder> 
                     Intent intent = new Intent(v.getContext(), AgentDetailActivity.class);
                     intent.putExtra("companyName", name.getText());
                     v.getContext().startActivity(intent);
-                    Log.d("RecyclerView", "onClick： " + getLayoutPosition() + name.getText());
                 }
             });
         }

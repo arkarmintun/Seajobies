@@ -57,7 +57,20 @@
                     android:maxLines="10"
                     android:gravity="top|left"
                     android:textColor="@color/textSecondary"
-                    android:hint="Description"
+                    android:hint="Content"
+                    fontPath="fonts/Roboto-Regular.ttf"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+                <EditText android:id="@+id/input_url"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textSecondary"
+                    android:hint="URL"
                     fontPath="fonts/Roboto-Regular.ttf"/>
             </android.support.design.widget.TextInputLayout>
 

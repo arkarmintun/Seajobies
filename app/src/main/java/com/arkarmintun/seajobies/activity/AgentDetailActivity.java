@@ -60,6 +60,11 @@ public class AgentDetailActivity extends AppCompatActivity {
 
         final Intent intent = getIntent();
         String companyName = intent.getStringExtra("companyName");
+        if (companyName.equals("Seajobies")) {
+            Intent intent1 = new Intent(AgentDetailActivity.this, AboutActivity.class);
+            startActivity(intent1);
+            finish();
+        }
 
         txtCompanyName = (TextView) findViewById(R.id.text_company_name);
         txtManagingDirector = (TextView) findViewById(R.id.text_managing_director);

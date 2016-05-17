@@ -42,7 +42,23 @@
                 android:value=".activity.WelcomeActivity" />
         </activity>
         <activity android:name=".activity.AgentEditActivity" />
-        <activity android:name=".activity.BulletinAddActivity"></activity>
+        <activity
+            android:name=".activity.BulletinAddActivity"
+            android:parentActivityName=".activity.WelcomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.WelcomeActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:label="About Developer"
+            android:parentActivityName=".activity.WelcomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.WelcomeActivity" />
+        </activity>
+        <activity android:name=".activity.CertificateAddActivity" />
+        <activity android:name=".activity.CertificateEditActivity"></activity>
     </application>
 
 </manifest>

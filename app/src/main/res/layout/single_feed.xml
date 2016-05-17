@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/feed_bg"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/feed_item_margin"
         android:layout_marginRight="@dimen/feed_item_margin"
         android:layout_marginTop="@dimen/feed_item_margin"
@@ -17,13 +17,15 @@
         android:paddingTop="@dimen/feed_item_padding_top_bottom" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/feed_item_padding_left_right"
             android:paddingRight="@dimen/feed_item_padding_left_right" >
 
             <ImageView
+                android:src="@drawable/ic_s"
+                android:gravity="center"
                 android:id="@+id/profilePic"
                 android:layout_width="@dimen/feed_item_profile_pic"
                 android:layout_height="@dimen/feed_item_profile_pic"
@@ -37,14 +39,14 @@
                 android:paddingLeft="@dimen/feed_item_profile_info_padd" >
 
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/text_name"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/feed_item_profile_name"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/timestamp"
+                    android:id="@+id/text_timestamp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/timestamp"
@@ -62,11 +64,12 @@
             android:paddingTop="@dimen/feed_item_status_pad_top" />
 
         <TextView
-            android:id="@+id/txtUrl"
+            android:id="@+id/text_url"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:linksClickable="true"
-            android:paddingBottom="10dp"
+            android:visibility="gone"
+            android:paddingBottom="5dp"
             android:paddingLeft="@dimen/feed_item_status_pad_left_right"
             android:paddingRight="@dimen/feed_item_status_pad_left_right"
             android:textColorLink="@color/link" />
@@ -76,7 +79,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:scaleType="fitXY"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
             android:visibility="visible" />
     </LinearLayout>
 

@@ -63,6 +63,7 @@ public class AgentFragment extends Fragment {
             public void onRefresh() {
                 agents.clear();
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Agent");
+                query.setLimit(1000);
                 query.orderByAscending("name");
                 query.selectKeys(Arrays.asList("name"));
                 query.findInBackground(new FindCallback<ParseObject>() {
@@ -70,10 +71,12 @@ public class AgentFragment extends Fragment {
                     public void done(List<ParseObject> objects, ParseException e) {
                         if (e == null) {
                             for (int i = 0; i < objects.size(); i++) {
-                                Agent agent = new Agent();
-                                agent.name = objects.get(i).getString("name");
-                                agents.add(agent);
-                                mAdapter.notifyDataSetChanged();
+                                if (!objects.get(i).getString("name").equals("Seajobies")) {
+                                    Agent agent = new Agent();
+                                    agent.name = objects.get(i).getString("name");
+                                    agents.add(agent);
+                                    mAdapter.notifyDataSetChanged();
+                                }
                             }
                         } else {
                             Toast.makeText(getContext(), "Something wrong", Toast.LENGTH_SHORT).show();
@@ -98,6 +101,7 @@ public class AgentFragment extends Fragment {
     private void getData() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Agent");
         Helper.startLoading(getContext(), "Fetching Data...");
+        query.setLimit(1000);
         query.orderByAscending("name");
         query.selectKeys(Arrays.asList("name"));
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -105,10 +109,12 @@ public class AgentFragment extends Fragment {
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
                     for (int i = 0; i < objects.size(); i++) {
-                        Agent agent = new Agent();
-                        agent.name = objects.get(i).getString("name");
-                        agents.add(agent);
-                        mAdapter.notifyDataSetChanged();
+                        if (!objects.get(i).getString("name").equals("Seajobies")) {
+                            Agent agent = new Agent();
+                            agent.name = objects.get(i).getString("name");
+                            agents.add(agent);
+                            mAdapter.notifyDataSetChanged();
+                        }
                     }
                 } else {
                     Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();

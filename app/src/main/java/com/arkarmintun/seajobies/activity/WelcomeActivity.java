@@ -1,5 +1,6 @@
 package com.arkarmintun.seajobies.activity;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -13,6 +14,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,7 +41,7 @@ public class WelcomeActivity extends AppCompatActivity {
             R.drawable.account
     };
     private FloatingActionMenu fab_menu;
-    private FloatingActionButton fab_add_agent, fab_add_feed, fab_admin_logout, fab_user_logout;
+    private FloatingActionButton fab_add_agent, fab_add_feed, fab_add_certificate, fab_admin_logout, fab_user_logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,14 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
+        fab_add_certificate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, CertificateAddActivity.class);
+                startActivity(intent);
+            }
+        });
+
         fab_user_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +111,7 @@ public class WelcomeActivity extends AppCompatActivity {
         fab_menu = (FloatingActionMenu) findViewById(R.id.fab_menu);
         fab_add_agent = (FloatingActionButton) findViewById(R.id.fab_add_agent);
         fab_add_feed = (FloatingActionButton) findViewById(R.id.fab_add_feed);
+        fab_add_certificate = (FloatingActionButton) findViewById(R.id.fab_add_certificate);
         fab_admin_logout = (FloatingActionButton) findViewById(R.id.fab_admin_logout);
         fab_user_logout = (FloatingActionButton) findViewById(R.id.fab_user_logout);
         fab_user_logout.setVisibility(View.GONE);
@@ -207,5 +219,29 @@ public class WelcomeActivity extends AppCompatActivity {
                         WelcomeActivity.super.onBackPressed();
                     }
                 }).create().show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_info, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_info) {
+            Intent intent = new Intent(WelcomeActivity.this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

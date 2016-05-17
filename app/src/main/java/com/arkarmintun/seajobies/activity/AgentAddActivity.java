@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -55,7 +54,6 @@ public class AgentAddActivity extends AppCompatActivity {
                 txtManagingDirector = textManagingDirector.getText().toString();
                 txtAddress = textAddress.getText().toString();
                 txtPhoneNumbers = agent.convertStringToJsonPhoneNumbers(textPhoneNumbers.getText().toString());
-                Log.e("PHONE NUMBERS", txtPhoneNumbers.toString());
 
                 if (txtCompanyName.equals("") && txtManagingDirector.equals("") && txtAddress.equals("")) {
                     Snackbar.make(v, "Please fill the form.", Snackbar.LENGTH_LONG).show();
